@@ -28,6 +28,8 @@ include RandomData
    )
  end
  
+ Post.find_or_create_by(title: "Title Alpha", body: "Body Alpha")
+ 
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
