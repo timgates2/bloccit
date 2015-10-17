@@ -4,11 +4,32 @@ class PostsController < ApplicationController
   end
 
   def show
+# #19
+    @post = Post.find(params[:id])
   end
 
   def new
+    @post = Post.new
+  end
+  
+  def create
+     @post = Post.new
+     @post.title = params[:post][:title]
+     @post.body = params[:post][:body]
+     if @post.save
+
+       flash[:notice] = "Post was saved."
+       redirect_to @post
+     else
+       
+       flash[:error] = "There was an error saving the post. Please try again."
+       render :new
+     end
   end
 
   def edit
   end
 end
+
+#I believe the changes needed for assignment-31-crud should be here. 
+#I'm not certain how to do it though. 
