@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show
+  def show 
   end
 
   def new
@@ -12,3 +12,6 @@ class PostsController < ApplicationController
   def edit
   end
 end
+
+#I believe the changes needed for assignment-31-crud should be here. 
+#I'm not certain how to do it though. 
