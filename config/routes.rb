@@ -4,6 +4,8 @@ Rails.application.routes.draw do
      resources :posts, except: [:index]
  # #8
      resources :users, only: [:new, :create]
+     
+     resources :sessions, only: [:new, :create, :destroy]
    end
  
   get 'about' => 'welcome#about'
