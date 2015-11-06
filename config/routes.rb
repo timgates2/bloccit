@@ -3,11 +3,11 @@ Rails.application.routes.draw do
  # #34
      resources :posts, except: [:index]
  # #8
-     resources :users, only: [:new, :create]
-     
-     resources :sessions, only: [:new, :create, :destroy]
+
    end
- 
+   resources :users, only: [:new, :create]
+
+   resources :sessions, only: [:new, :create, :destroy]
   get 'about' => 'welcome#about'
 
   root to: 'welcome#index'
