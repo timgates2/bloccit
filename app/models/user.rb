@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 # #2
+has_many :comments, dependent: :destroy
+has_many :posts, dependent: :destroy
    before_save { self.email = email.downcase }
    before_save { self.role ||= :member }
 
