@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 include RandomData
- 
+
  # Create Topics
  15.times do
    Topic.create!(
@@ -15,7 +15,7 @@ include RandomData
    )
  end
  topics = Topic.all
- 
+
  # Create Posts
  50.times do
  # #1
@@ -27,7 +27,7 @@ include RandomData
    )
  end
  posts = Post.all
- 
+
  # Create Comments
  # #3
  100.times do
@@ -37,8 +37,22 @@ include RandomData
      body: RandomData.random_paragraph
    )
  end
- 
+
  puts "Seed finished"
  puts "#{Topic.count} topics created"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
+
+ admin = User.create!(
+   name:     'Admin User',
+   email:    'admin@example.com',
+   password: 'helloworld',
+   role:     'admin'
+ )
+
+ # Create a member
+ member = User.create!(
+   name:     'Member User',
+   email:    'member@example.com',
+   password: 'helloworld'
+ )
