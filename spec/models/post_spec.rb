@@ -4,9 +4,9 @@ include RandomData
 RSpec.describe Post, type: :model do
 
   #let(:post) { Post.create!(title: "New Post Title", body: "New Post Body") }
-   let(:user) {User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
-   let(:topic) { Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph) }
-   let(:post) { topic.posts.create!(user: user, title: RandomData.random_sentence, body: RandomData.random_paragraph) }
+  let(:topic) { create(:topic) }
+  let(:user) { create(:user) }
+  let(:post) { create(:post) }
 
 
    it { should have_many(:labelings) }
