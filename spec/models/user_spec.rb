@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
    it "should respond to email" do
      expect(user).to respond_to(:email)
    end
-   end
+ end
 
    describe "invalid user" do
      let(:user_with_invalid_name) { build(:user, name: "") }
@@ -64,13 +64,14 @@ RSpec.describe User, type: :model do
    it "should respond to member?" do
      expect(user).to respond_to(:member?)
    end
-   end
+ end
 
    describe "roles" do
 
      it "should be member by default" do
        expect(user.role).to eql("member")
      end
+   end
 
      context "member user" do
        it "should return true for #member?" do
@@ -120,3 +121,10 @@ RSpec.describe User, type: :model do
           expect(known_user.avatar_url(48)).to eq(expected_gravatar)
         end
       end
+
+      describe "#generate_auth_token" do
+        it "creates a token" do
+          expect(user.auth_token).to_not be_nil
+        end
+      end
+    end
