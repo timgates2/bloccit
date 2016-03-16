@@ -23,7 +23,7 @@ has_many :favorites, dependent: :destroy
              format: { with: EMAIL_REGEX }
 
  # #7
-   #has_secure_password
+   has_secure_password
 
    enum role: [:member, :admin]
    def favorite_for(post)
